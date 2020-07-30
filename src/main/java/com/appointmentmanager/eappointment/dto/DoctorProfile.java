@@ -28,9 +28,11 @@ public class DoctorProfile {
 	@Email(message = "Please provide valid email")
 	private String		mail;
 	
-	@NotEmpty(message = "Primary Contact cannot be empty")
-	@Pattern(regexp = "^01[3-9][0-9]{8}$", message="Invalid Contact No")
-	private String		contact;
+	/*
+	 * @NotEmpty(message = "Primary Contact cannot be empty")
+	 * 
+	 * @Pattern(regexp = "^01[3-9][0-9]{8}$", message="Invalid Contact No")
+	 */	private String		contact;
 	
 	private	String		status;
 	
@@ -38,13 +40,13 @@ public class DoctorProfile {
 	
 // appointment shedule 
 	
-	@NotEmpty(message="appointment Date and time cannot be empty, Please select a date and time")
-	private String 			appointmentDateTimeString; 
+	//@NotEmpty(message="appointment time cannot be empty, Please select a date and time")
+	private String 			appointmentTimeFrom; 
 	
-	private Timestamp 		appointmentDateTime; 
+	private String 			appointmentTimeTo; 
 	
-	private String 			appointmentTime;
-
+	private String 			meetingDuration;
+	
 	public Long getProfileId() {
 		return profileId;
 	}
@@ -125,28 +127,28 @@ public class DoctorProfile {
 		this.image = image;
 	}
 
-	public String getAppointmentDateTimeString() {
-		return appointmentDateTimeString;
+	public String getAppointmentTimeFrom() {
+		return appointmentTimeFrom;
 	}
 
-	public void setAppointmentDateTimeString(String appointmentDateTimeString) {
-		this.appointmentDateTimeString = appointmentDateTimeString;
+	public void setAppointmentTimeFrom(String appointmentTimeFrom) {
+		this.appointmentTimeFrom = appointmentTimeFrom;
 	}
 
-	public Timestamp getAppointmentDateTime() {
-		return appointmentDateTime;
+	public String getAppointmentTimeTo() {
+		return appointmentTimeTo;
 	}
 
-	public void setAppointmentDateTime(Timestamp appointmentDateTime) {
-		this.appointmentDateTime = appointmentDateTime;
+	public void setAppointmentTimeTo(String appointmentTimeTo) {
+		this.appointmentTimeTo = appointmentTimeTo;
 	}
 
-	public String getAppointmentTime() {
-		return appointmentTime;
+	public String getMeetingDuration() {
+		return meetingDuration;
 	}
 
-	public void setAppointmentTime(String appointmentTime) {
-		this.appointmentTime = appointmentTime;
+	public void setMeetingDuration(String meetingDuration) {
+		this.meetingDuration = meetingDuration;
 	}
 
 	@Override
@@ -154,10 +156,9 @@ public class DoctorProfile {
 		return "DoctorProfile [profileId=" + profileId + ", doctorName=" + doctorName + ", designation=" + designation
 				+ ", gender=" + gender + ", personalAddress=" + personalAddress + ", meetingAddress=" + meetingAddress
 				+ ", mail=" + mail + ", contact=" + contact + ", status=" + status + ", image=" + image
-				+ ", appointmentDateTimeString=" + appointmentDateTimeString + ", appointmentDateTime="
-				+ appointmentDateTime + ", appointmentTime=" + appointmentTime + "]";
-	}  
-	
-	
+				+ ", appointmentTimeFrom=" + appointmentTimeFrom + ", appointmentTimeTo=" + appointmentTimeTo
+				+ ", meetingDuration=" + meetingDuration + "]";
+	}
+
 	
 }
